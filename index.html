@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../electronic-wallet/css/style.css">
+    <title>Budget Web Application</title>
+</head>
+<body onload="loadApp()">
+    <div class="header">
+        <div class="budget">
+            <div class="budget_tittle">
+                Available Budget
+            </div>
+            <div class="budget_value" id="budget"> +2,000.00</div>
+            <!--INCOMES-->
+            <div class="budget_income clearStyle">
+                <div class="budget_income--text">Incomes</div>
+                <div class="right">
+                    <div class="budget_income--value" id="incomes">+4,000.00</div>
+                    <div class="budget_income--percentage">&nbsp;</div>
+                </div>
+            </div>
+            <!--EXPENSES-->
+            <div class="budget_expense clearStyle">
+                <div class="budget_expense--text">Expenses</div>
+                <div class="right clearStyle">
+                    <div class="budget_expense--value" id="expenses">-1,900.00</div>
+                    <div class="budget_expense--percentage" id="percentage">45%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <form id="form" onsubmit="return false"> <!--onsubmit: No lo enviara a ningun servidor-->
+        <div class="add">
+            <div class="add_container">
+                <select class="add_type" id="type">
+                    <option value="income" selected>+</option> <!--Opcion por defaul al agregar selected-->
+                    <option value="expense">-</option>
+                </select>
+                <input type="text" class="add_description" placeholder="Add description" id="description"/>
+                <input type="number" class="add_value" placeholder="Value" id="value" step="any"/><!--Agregar decimales en el input se agrega step='any'-->
+                <button class="add_btn" onclick="addData()">
+                    <ion-icon name="checkmark-circle-outline"></ion-icon>
+                </button>
+            </div>
+        </div>
+    </form>
+    <div class="container clearStyle">
+        <div class="incomes">
+            <h2 class="income_tittle">Incomes</h2>
+            <div id="list_incomes">
+                <div class="element clearStyle">
+                    <div class="element_description"><!--agregara la descripcion del ingreso--></div>
+                    <div class="right clearStyle">
+                        <div class="element_value"><!--agrega el valor de cada ingreso--></div>
+                        <div class="delete_element">
+                            <button class="delete_element--btn">
+                                <ion-icon name="close-circle-outline"><!--Icono con un tache--></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="expenses">
+            <h2 class="expense_tittle">Expenses</h2>
+            <div id="list_expenses">
+                <div class="element clearStyle">
+                    <div class="element_description"><!--Agregara la descripcion de cada egreso--></div>
+                    <div class="right clearStyle">
+                        <div class="element_value"><!--Agregara el valor que le corresponde a cada egreso--></div>
+                        <div class="element_percentage"><!--Agregara el porcentaje del egreso total--></div>
+                        <div class="delete_element">
+                            <button class="delete_element--btn">
+                                <ion-icon name="close-circle-outline"><!--Icono con un tache--></ion-icon>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+
+    <script src="../electronic-wallet/js/Data.js"></script>
+    <script src="../electronic-wallet/js/Income.js"></script>
+    <script src="../electronic-wallet/js/Expense.js"></script>
+    <script src="../electronic-wallet/js/app.js"></script>
+
+
+</body>
+</html>
